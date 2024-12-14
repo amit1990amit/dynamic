@@ -17,6 +17,7 @@ const CharactersTableHeaderCell = ({ handleSort, orderBy, order, label, property
   return (
             <TableCell className="table-cell">
               <TableSortLabel
+                className="table-cell-label"
                 active={orderBy === propertyName}
                 direction={orderBy === propertyName ? order : "asc"}
                 onClick={() => handleSort(propertyName)}

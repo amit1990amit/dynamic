@@ -16,6 +16,15 @@
   border: 1px solid #ddd;
 }
 
+.table-cell-label {
+  color: #ddd !important;
+  font-weight: 600 !important;
+
+  svg {
+    color: #ddd !important;
+  }
+}
+
 .table-pagination {
   margin: 20px 0;
   display: flex;
