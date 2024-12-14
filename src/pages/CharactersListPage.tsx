@@ -8,7 +8,7 @@ const CharactersListPage = () => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     ["characters", page, search],
     () => fetchCharacters(page, search),
     {
@@ -43,6 +43,7 @@ const CharactersListPage = () => {
           total={data?.count || 0}
           page={page}
           setPage={handlePageChange}
+          isFetching={isFetching}
         />
       
     </div>

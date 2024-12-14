@@ -15,9 +15,10 @@ type Props = {
   total: number;
   page: number;
   setPage: (page: number) => void;
+  isFetching: boolean;
 }
 
-const CharactersTable = ({ data, total, page, setPage }: Props) => {
+const CharactersTable = ({ data, total, page, setPage, isFetching }: Props) => {
   const { order, orderBy, sortedData, totalPages, handleSort } = useTable({
     data,
     total,
@@ -28,7 +29,12 @@ const CharactersTable = ({ data, total, page, setPage }: Props) => {
   },[setPage])
 
   return (
-    <>
+    <div className="table-container">
+      {isFetching && (
+        <div className="spinner-overlay">
+          <div className="spinner"></div>
+        </div>
+      )}
       <Table className="table">
         <CharactersTableHeader
           handleSort={handleSort}
@@ -47,7 +53,7 @@ const CharactersTable = ({ data, total, page, setPage }: Props) => {
         handlePageChange={handlePageChange}
 
       />
-    </>
+    </div>
   );
 };
 
