@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { fetchCharacters } from "../services/api";
 import CharactersTable from "../components/CharactersTable";
+import Spinner from '../components/Spinner'
 
 const CharactersListPage = () => {
   const [page, setPage] = useState(1);
@@ -26,8 +27,7 @@ const CharactersListPage = () => {
     setSearch(e.target.value);
   };
 
-  if (isLoading) return <p>Loading...</p>;
-
+  if (isLoading) return <Spinner/>
   return (
     <div>
       <h1>Star Wars Characters</h1>

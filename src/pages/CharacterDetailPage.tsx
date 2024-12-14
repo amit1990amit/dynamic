@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import { fetchCharacterDetails } from "../services/api";
+import  Spinner  from '../components/Spinner'
 
 const CharacterDetailPage = () => {
   const { id } = useParams();
@@ -11,7 +12,7 @@ const CharacterDetailPage = () => {
     fetchCharacterDetails(id || "")
   );
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Spinner/>;
   if (error) return <p>Error loading data</p>;
 
   return (
