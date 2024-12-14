@@ -8,8 +8,14 @@ const CharacterDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { data, isLoading, error } = useQuery(["characterDetail", id], () =>
-    fetchCharacterDetails(id || "")
+  const { data, isLoading, error } = useQuery(
+    ["characterDetail", id],
+    () => fetchCharacterDetails(id || ""),
+    {
+      onError: (error) => {
+        console.error("Error fetching character details:", error);
+      },
+    }
   );
 
   if (isLoading) return <Spinner/>;

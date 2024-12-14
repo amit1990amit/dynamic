@@ -8,13 +8,16 @@ const CharactersListPage = () => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
 
-  const { data, isLoading, isFetching } = useQuery(
+  const { data, isLoading, isFetching, error } = useQuery(
     ["characters", page, search],
     () => fetchCharacters(page, search),
     {
       keepPreviousData: true,
-      staleTime: Infinity // prevent api request for catched value, wont use it in most cases
-    }
+      staleTime: Infinity, // prevent api request for catched value, wont use it in most cases
+      onError: (error) => {
+        console.error("Error fetching characters:", error);
+      },
+    },
   );
 
   const handlePageChange = (newPage: number) => {
@@ -28,6 +31,8 @@ const CharactersListPage = () => {
   };
 
   if (isLoading) return <Spinner/>
+  if (error) return <p>Error loading data</p>;
+
   return (
     <div>
       <h1>Star Wars Characters</h1>
