@@ -17,7 +17,7 @@ const CharactersTableHeader = ({ handleSort, orderBy, order }: Props) => {
 
   return (
     <>
-        <TableHead>
+        <TableHead className="table-head">
           <TableRow>
             {HEADER_DATA_BY_COLUMN.map((data) => {
               return <CharactersTableHeaderCell

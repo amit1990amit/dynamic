@@ -12,13 +12,14 @@ const CharactersTablePagination = ({ totalPages, page, handlePageChange }: Props
 
   return (
     <Pagination
-    count={totalPages}
-    page={page}
-    onChange={handlePageChange}
-    color="primary"
-    size="large"
-    siblingCount={1}
-    boundaryCount={1}
+      className="table-pagination"
+      count={totalPages}
+      page={page}
+      onChange={handlePageChange}
+      color="primary"
+      size="large"
+      siblingCount={1}
+      boundaryCount={1}
   />
   );
 };

@@ -15,8 +15,7 @@ const CharacterDetailPage = () => {
   if (error) return <p>Error loading data</p>;
 
   return (
-    <div>
-      <button onClick={() => navigate(-1)}>Back to List</button>
+    <div className="detail-container">
       <h1>{data.name}</h1>
       <p>Height: {data.height}</p>
       <p>Mass: {data.mass}</p>
@@ -25,6 +24,7 @@ const CharacterDetailPage = () => {
       <p>Eye Color: {data.eye_color}</p>
       <p>Birth Year: {data.birth_year}</p>
       <p>Gender: {data.gender}</p>
+      <button onClick={() => navigate(-1)}>Back to List</button>
     </div>
   );
 };

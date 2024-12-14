@@ -29,7 +29,7 @@ const CharactersTable = ({ data, total, page, setPage }: Props) => {
 
   return (
     <>
-      <Table>
+      <Table className="table">
         <CharactersTableHeader
           handleSort={handleSort}
           order={order}

@@ -15,7 +15,7 @@ type Props = {
 
 const CharactersTableHeaderCell = ({ handleSort, orderBy, order, label, propertyName }: Props) => {
   return (
-            <TableCell>
+            <TableCell className="table-cell">
               <TableSortLabel
                 active={orderBy === propertyName}
                 direction={orderBy === propertyName ? order : "asc"}
