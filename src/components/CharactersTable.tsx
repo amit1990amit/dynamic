@@ -26,10 +26,6 @@ const CharactersTable = ({ data, total, page, handlePageChange, isFetching }: Pr
     total,
   });
 
-  // const handlePageChange = useCallback((event: React.ChangeEvent<unknown>, value: number) => {
-  //   setPage(value);
-  // },[setPage])
-
   return (
     <div className="table-container">
       {isFetching && <Spinner spinnerContainerClass={SPINNER_OVERLAY}/>}
