@@ -1,4 +1,5 @@
 const ROWS_PER_PAGE = 10
+const SPINNER_OVERLAY = "spinner-overlay"
 
 const HEADER_DATA_BY_COLUMN = [
   {
@@ -17,5 +18,6 @@ const HEADER_DATA_BY_COLUMN = [
 
 export {
   ROWS_PER_PAGE,
-  HEADER_DATA_BY_COLUMN
+  HEADER_DATA_BY_COLUMN,
+  SPINNER_OVERLAY,
 }

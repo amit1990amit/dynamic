@@ -3,19 +3,23 @@ import Pagination from "@mui/material/Pagination";
 
 
 type Props = {
-  handlePageChange: (event: React.ChangeEvent<unknown>, value: number) => void;
+  handlePageChange: (page: number) => void;
   totalPages: number;
   page: number;
 }
 
 const CharactersTablePagination = ({ totalPages, page, handlePageChange }: Props) => {
 
+  const onPageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    handlePageChange(value);
+  }
+
   return (
     <Pagination
       className="table-pagination"
       count={totalPages}
       page={page}
-      onChange={handlePageChange}
+      onChange={onPageChange}
       color="primary"
       size="large"
       siblingCount={1}

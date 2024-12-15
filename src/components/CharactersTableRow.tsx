@@ -5,18 +5,19 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Character } from '../types'
-
+import { getCharacterLink } from './utils'
 
 type Props = {
   character: Character;
 }
 
-const CharactersTableRow: React.FC<Props> = ({ character } : Props) => {
+const CharactersTableRow = ({ character } : Props) => {
+  const characterUrl = getCharacterLink(character.url)
 
   return (
     <TableRow >
       <TableCell>
-        <Link to={`/character/${character.url.split("/").slice(-2, -1)[0]}`}>
+        <Link to={characterUrl}>
           {character.name}
         </Link>
       </TableCell>

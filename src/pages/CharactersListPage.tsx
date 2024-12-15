@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useQuery } from "react-query";
 import { fetchCharacters } from "../services/api";
 import CharactersTable from "../components/CharactersTable";
@@ -20,15 +20,15 @@ const CharactersListPage = () => {
     },
   );
 
-  const handlePageChange = (newPage: number) => {
+  const handlePageChange = useCallback((page: number) => {
     setSearch("");
-    setPage(newPage);
-  };
+    setPage(page);
+  }, []);
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setPage(1);
     setSearch(e.target.value);
-  };
+  }, []);
 
   if (isLoading) return <Spinner/>
   if (error) return <p>Error loading data</p>;
@@ -42,15 +42,13 @@ const CharactersListPage = () => {
         value={search}
         onChange={handleSearchChange}
       />
-      
         <CharactersTable
           data={data?.results || []}
           total={data?.count || 0}
           page={page}
-          setPage={handlePageChange}
+          handlePageChange={handlePageChange}
           isFetching={isFetching}
         />
-      
     </div>
   );
 };

@@ -1,9 +1,13 @@
 import React from "react";
 
-const Spinner = () => {
+type Props = {
+  spinnerContainerClass?: string;
+}
+
+const Spinner = ({spinnerContainerClass = 'spinner-container'}: Props) => {
 
   return (
-    <div className="spinner-container">
+    <div className={spinnerContainerClass}>
       <div className="spinner"></div>
     </div>
   );

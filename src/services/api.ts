@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://swapi.dev/api";
+const API_URL = "https://swapi.py4e.com/api";
 
 export const fetchCharacters = async (page: number, search?: string) => {
   const response = await axios.get(`${API_URL}/people/`, {
